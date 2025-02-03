@@ -63,15 +63,15 @@ Unfortunately, there weren’t enough lifeboats for everyone onboard, resulting 
   <tbody>
     <tr>
       <td>📧</td>
-      <td><a href="mailto:anietieetuk@gmail.com">anietieetuk@gmail.com</a></td>
+      <td><a href="mailto:kennethasmith96@gmail.com">kennethasmith96@gmail.com</a></td>
     </tr>
     <tr>
       <td>📞</td>
-      <td>(234) 816-763-7212</td>
+      <td>770-238-8869</td>
     </tr>
     <tr>
       <td>📍</td>
-      <td>PH, Nigeria</td>
+      <td>Atlanta, GA</td>
     </tr>
     <tr>
       <td>⬇️</td>
@@ -83,7 +83,7 @@ Unfortunately, there weren’t enough lifeboats for everyone onboard, resulting 
     </tr>
     <tr>
       <td>📺</td>
-      <td><a href="https://www.youtube.com/@LearnwithEtuk">Watch my tutorials on YouTube</a></td>
+      
     </tr>
   </tbody>
 </table>
