@@ -75,7 +75,7 @@ Unfortunately, there weren’t enough lifeboats for everyone onboard, resulting 
     </tr>
     <tr>
       <td>⬇️</td>
-      <td><a href="Kenneth Smith Resume 2025-2026.pdf">Download my CV</a></td>
+      <td><a href="https://github.com/KSmithJr/Kenny-s-Portfolio/blob/af7decba47fcba7f20eda0fe1a60ef8e0f6f2a87/Kenneth%20Smith%20Resume%202025-2026.pdf">Download my CV</a></td>
     </tr>
     <tr>
       <td>🌐</td>
