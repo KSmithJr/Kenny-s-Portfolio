@@ -31,13 +31,13 @@ Leads dynamic reporting, using advanced concepts including calculated fields, pa
 
 *A glimpse of some of the projects I've been working on.*
 
-**Predictive Modeling and Hypothesis Testing using Titanic Dataset.**
-![image](1 anietie etuk data analytics car project.jpeg)
+**Predictive Modeling and Hypothesis Testing to help an HR Department Reduce/Plan for Attrition.**
+![image](Decision Tree.png)
 
-The sinking of the Titanic is one of the most infamous shipwrecks in history.
+Summary: During this project, we were portrayed as consultants to a company looking to understand and plan for attrition within their company. We used statistcal modeling to find the various important attributes and then used them to train a Decision Tree and Logistic Regression model to predict which employees would leave versus which would stay. 
 
 
-[Read More](https://www.linkedin.com/pulse/predictive-modeling-hypothesis-testing-using-titanic-dataset-anietie/)
+[Learn More](https://drive.google.com/drive/folders/1ilPszHCMcltSQQeigEya-av1lxLnHdla?usp=drive_link)
 
 **Predictive Modeling and Hypothesis Testing Surrounding the Future of the United States Real Estate Market.**
 
