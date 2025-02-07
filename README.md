@@ -43,9 +43,9 @@ The sinking of the Titanic is one of the most infamous shipwrecks in history.
 
 ![image](Real Estate Modeling.png)
 
-On April 15, 1912, during her maiden voyage, the widely considered “unsinkable” RMS Titanic sank after colliding with an iceberg. 
+Summary: Launched this project after the onset of the Covid-19 pandemic and response of massive increases in home values across the United States in the years after. Main objectives were to conduct exploratory data analysis to identify key factors causing the increase in home prices and also to build a linear regression model that could predict future home prices. Feel free to dive into the coding workbook and datafolio for this project at the link below!
 
-[Read More](https://www.linkedin.com/pulse/predictive-modeling-hypothesis-testing-using-titanic-dataset-anietie/)
+[Read More](https://drive.google.com/drive/folders/1Ki2uTiqJPgr1ksEgQ4fXv2TIjd1eccV6?usp=drive_link)
 
 **Predictive Modeling and Hypothesis Testing using Titanic Dataset.**
 
