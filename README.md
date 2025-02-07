@@ -82,7 +82,7 @@ Unfortunately, there weren’t enough lifeboats for everyone onboard, resulting 
       <td><a href="https://www.linkedin.com/in/kenneth-a-smith/">The things I do daily on LinkedIn</a></td>
     </tr>
     <tr>
-      <td>📺</td>
+     
       
     </tr>
   </tbody>
