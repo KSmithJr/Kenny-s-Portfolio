@@ -47,13 +47,7 @@ Summary: Launched this project after the onset of the Covid-19 pandemic and resp
 
 [Read More](https://drive.google.com/drive/folders/1Ki2uTiqJPgr1ksEgQ4fXv2TIjd1eccV6?usp=drive_link)
 
-**Predictive Modeling and Hypothesis Testing using Titanic Dataset.**
 
-![image](3 anietie etuk data analytics agro project.jpg)
-
-Unfortunately, there weren’t enough lifeboats for everyone onboard, resulting in the death of 1502 out of 2224 passengers and crew. 
-
-<a href="17 How to Present Data to Executives by Anietie Etuk.pdf">Download the Report here (pdf file)</a>
 
 
 ## CONTACT DETAILS
