@@ -52,7 +52,7 @@ Summary: Launched this project after the onset of the Covid-19 pandemic and resp
 
 Summary: Completed this project as part of coursework at Georgia Tech Micromasters in Analytics program. We are provided credit card data from a subset of customers and seeking to build a model to classify customers between 0 and 1. This will help the bank assess creditworthiness, manage risk and improve customer service. I went with a Support Vector Machine model and a K-Nearest Neighbor's Model and compared the performance on a validation and test data set to determine which one to go with. Feel free to dive into the coding workbook at the link below! 
 
-[Read More](Cross-Validation.R)
+[Read More](https://github.com/KSmithJr/Georgia-Tech-Micromasters--Analytics-Work/blob/7346edd293ca19d80c2ab776c52dd9e8e3bc61ef/Cross-Validation.R)
 
 
 ## CONTACT DETAILS
