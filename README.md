@@ -47,7 +47,12 @@ Summary: Launched this project after the onset of the Covid-19 pandemic and resp
 
 [Read More](https://drive.google.com/drive/folders/1Ki2uTiqJPgr1ksEgQ4fXv2TIjd1eccV6?usp=drive_link)
 
+**Support Vector Machine & K-Nearest Neighbor Model Development to Classify Customers Based on Credit Card Data .**
+![image](Rplot05.png)
 
+Summary: Completed this project as part of coursework at Georgia Tech Micromasters in Analytics program. We are provided credit card data from a subset of customers and seeking to build a model to classify customers between 0 and 1. This will help the bank assess creditworthiness, manage risk and improve customer service. I went with a Support Vector Machine model and a K-Nearest Neighbor's Model and compared the performance on a validation and test data set to determine which one to go with. Feel free to dive into the coding workbook at the link below! 
+
+[Read More](Cross-Validation.R)
 
 
 ## CONTACT DETAILS
