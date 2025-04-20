@@ -4,18 +4,18 @@ Data Portfolio
 <!--Section 1: Introduce your self-->
 ## ABOUT ME
 
-Hello! I'm Kenny Smith 🤓, a Senior Data Analyst currently working for Bank of America within the Enterprise Credit Data Strategy & Governance organization. I am passionate about using advanced analytics to help companies drive organic growth through improved efficiency and cost savings through powerful reporting to uncover insights, automating mundane and repeat tasks through ETL tools and utilizing artifical intelligence frameworks to deploy prescriptive and predictive models. 
+Hello! I'm Kenny Smith 🤓, a Senior Data Analyst currently working for Bank of America within the Enterprise Credit Data Strategy & Governance organization. I am passionate about using advanced analytics to help companies drive organic growth through improved efficiency and cost savings utilizing powerful reporting to uncover insights, automating mundane and repeat tasks through ETL tools and utilizing artifical intelligence frameworks to deploy prescriptive and predictive models. 
 
 
 <!--Mention your top/relevant skills here - core and soft skills-->
 ## WHAT I DO
 
-*With 5+ years of experience in Data Analytics and Data Science, I have gained the following skills.*
+*With 6+ years of experience in Data Analytics and Data Science, I have gained the following skills.*
 ## PROGRAMMING
 **- ✅ Python.**
 Packages used include Pandas, Numpy, MatPlotLib, SciKit-Learn, TensorFlow, Seaborn, Plotly 
 **- ✅ SQL.**
-IDE's used includes Toad for SQL Server, Oracle SQL Developer, PrestoSQL
+IDE's used includes Toad for SQL Server, Oracle SQL Developer, PrestoSQL. Experience extracting using Apache Impala to access data from Hadoop systems. 
 **- ✅ R.**
 Packages used include ggplot2, caret, e1071
 
