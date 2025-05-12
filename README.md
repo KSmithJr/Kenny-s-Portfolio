@@ -47,13 +47,18 @@ Summary: Launched this project after the onset of the Covid-19 pandemic and resp
 
 [Read More](https://drive.google.com/drive/folders/1Ki2uTiqJPgr1ksEgQ4fXv2TIjd1eccV6?usp=drive_link)
 
-**Support Vector Machine & K-Nearest Neighbor Model Development to Classify Customers Based on Credit Card Data .**
+**Support Vector Machine & K-Nearest Neighbor Model Development in R to Classify Customers Based on Credit Card Data .**
 ![image](Rplot05.png)
 
 Summary: Completed this project as part of coursework at Georgia Tech Micromasters in Analytics program. We are provided credit card data from a subset of customers and seeking to build a model to classify customers between 0 and 1. This will help the bank assess creditworthiness, manage risk and improve customer service. I went with a Support Vector Machine model and a K-Nearest Neighbor's Model and compared the performance on a validation and test data set to determine which one to go with. Feel free to dive into the coding workbook at the link below! 
 
 [Read More](https://github.com/KSmithJr/Georgia-Tech-Micromasters--Analytics-Work/blob/7346edd293ca19d80c2ab776c52dd9e8e3bc61ef/Cross-Validation.R)
 
+**Logistic Regression Model Development in R To Classify Credit Applicants as Good or Bad Risks .**
+
+Summary: Completed this project as part of coursework at Georgia Tech Micromasters in Analytics program. Using the GermanCredit data set germancredit.txt from http://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german we were tasked with classifying customers as good or bad credit risks (0 or 1). Because the model gives a result between 0 and 1, it requires setting a threshold probability to separate between “good” and “bad” answers.  In this data set, they estimate that incorrectly identifying a bad customer as good, is 5 times worse than incorrectly classifying a good customer as bad. Since we are penalizing False Positives more heavily, we decided on a decision threshold value greater than 0.5. This reduces the number of bad customers mistakenly approved but possibly increases the chance of a good customer being declined. However, because we are dealing with credit risk here, we would rather decline a good customer than mistakenly approve a bad customer as the risk is higher to a bank’s loan portfolio. Since the prompt tell us False Positives are 5 times as costly as false negatives we compute this and get a optimal threshold of 0.87. Feel free to dive into the coding workbook at the link below! 
+
+[Read More](https://github.com/KSmithJr/Georgia-Tech-Micromasters--Analytics-Work/blob/main/Logistiic%20Regression%20Model-%20Credit%20Risk.R)
 
 ## CONTACT DETAILS
 
