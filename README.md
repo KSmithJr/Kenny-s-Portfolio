@@ -55,6 +55,8 @@ Summary: Completed this project as part of coursework at Georgia Tech Micromaste
 [Read More](https://github.com/KSmithJr/Georgia-Tech-Micromasters--Analytics-Work/blob/7346edd293ca19d80c2ab776c52dd9e8e3bc61ef/Cross-Validation.R)
 
 **Logistic Regression Model Development in R To Classify Credit Applicants as Good or Bad Risks .**
+![image](Decision Thresholld.png)
+![image](Rplot09.png)
 
 Summary: Completed this project as part of coursework at Georgia Tech Micromasters in Analytics program. Using the GermanCredit data set germancredit.txt from http://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german we were tasked with classifying customers as good or bad credit risks (0 or 1). Because the model gives a result between 0 and 1, it requires setting a threshold probability to separate between “good” and “bad” answers.  In this data set, they estimate that incorrectly identifying a bad customer as good, is 5 times worse than incorrectly classifying a good customer as bad. Since we are penalizing False Positives more heavily, we decided on a decision threshold value greater than 0.5. This reduces the number of bad customers mistakenly approved but possibly increases the chance of a good customer being declined. However, because we are dealing with credit risk here, we would rather decline a good customer than mistakenly approve a bad customer as the risk is higher to a bank’s loan portfolio. Since the prompt tell us False Positives are 5 times as costly as false negatives we compute this and get a optimal threshold of 0.87. Feel free to dive into the coding workbook at the link below! 
 
