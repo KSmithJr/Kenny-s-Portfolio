@@ -50,7 +50,7 @@ Summary: During this project, we were portrayed as consultants to a company look
 
 **Predictive Modeling and Hypothesis Testing Surrounding the Future of the United States Real Estate Market.**
 
-![image](Real Estate Modeling.png)
+![image](Real_Estate_Modeling.png)
 
 Summary: Launched this project after the onset of the Covid-19 pandemic and response of massive increases in home values across the United States in the years after. Main objectives were to conduct exploratory data analysis to identify key factors causing the increase in home prices and also to build a linear regression model that could predict future home prices. Feel free to dive into the coding workbook and datafolio for this project at the link below!
 
