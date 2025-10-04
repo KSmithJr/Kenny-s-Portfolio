@@ -4,7 +4,7 @@ Data Portfolio
 <!--Section 1: Introduce your self-->
 ## ABOUT ME
 
-Hello! I'm Kenny Smith 🤓, a Senior Data Analyst currently working for Bank of America within the Enterprise Credit Data Strategy & Governance organization. I am passionate about using advanced analytics to help companies drive organic growth through improved efficiency and cost savings utilizing powerful reporting to uncover insights, automating mundane and repeat tasks through ETL tools and utilizing artifical intelligence frameworks to deploy prescriptive and predictive models. 
+Hello! I'm Kenny Smith 🤓, a Analytics & Insights Manager currently working at Inteors.AI, an AI-powered SaaS platform monitoring over 230 million entities and 11 billion supplier-buyer relationships designed for real-time supply chain risk management. I thrive in operating at the intersection of data science, data engineering and data analytics, leading teams and initiatives to drive organic growth through powerful reporting and insights, predictive and prescriptive modeling to forecast and support decision making, custom AI Agent and GPT creation, and utilizing an expansive analytics toolkit to automate repeatable tasks. 
 
 
 <!--Mention your top/relevant skills here - core and soft skills-->
@@ -15,7 +15,7 @@ Hello! I'm Kenny Smith 🤓, a Senior Data Analyst currently working for Bank of
 **- ✅ Python.**
 Packages used include Pandas, Numpy, MatPlotLib, SciKit-Learn, TensorFlow, Seaborn, Plotly 
 **- ✅ SQL.**
-IDE's used includes Toad for SQL Server, Oracle SQL Developer, PrestoSQL. Experience extracting using Apache Impala to access data from Hadoop systems. 
+Experience extracting, querying, and transforming data using Snowflake, Databricks (Spark SQL), Toad for SQL Server, Oracle SQL Developer, PrestoSQL, and Apache Impala (Hadoop) 
 **- ✅ R.**
 Packages used include ggplot2, caret, e1071
 
@@ -24,6 +24,12 @@ Packages used include ggplot2, caret, e1071
 Created over 100 workflows for setting up data pipelines, automating report creation, building RESTful APIs, and using SMTP to schedule automated emails for important updates.  
 **- ✅ Tableau.**
 Leads dynamic reporting, using advanced concepts including calculated fields, parameters, actions and more. 
+**- ✅ Palantir Foundry & AIP.**
+Develops ontologies, builds data pipelines, and leverages AI/ML workflows to generate actionable insights from complex, multi-source datasets.
+**- ✅ Snowflake & Databricks (Spark SQL).**
+Extracts, queries, and transforms multi-terabyte datasets to deliver scalable insights and support predictive analytics initiatives.
+**- ✅ Google Cloud Platform.**
+Builds and deploys machine learning models, manages cloud-based data pipelines, and integrates analytics workflows with enterprise cloud infrastructure.
 
 
 <!--Section 2: List 3-4 key projects-->
