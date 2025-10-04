@@ -24,6 +24,7 @@ Packages used include ggplot2, caret, e1071
 Created over 100 workflows for setting up data pipelines, automating report creation, building RESTful APIs, and using SMTP to schedule automated emails for important updates.  
 **- ✅ Tableau.**
 Leads dynamic reporting, using advanced concepts including calculated fields, parameters, actions and more. 
+
 **- ✅ Palantir Foundry & AIP.**
 Develops ontologies, builds data pipelines, and leverages AI/ML workflows to generate actionable insights from complex, multi-source datasets.
 **- ✅ Snowflake & Databricks (Spark SQL).**
