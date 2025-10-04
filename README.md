@@ -27,8 +27,10 @@ Leads dynamic reporting, using advanced concepts including calculated fields, pa
 
 **- ✅ Palantir Foundry & AIP.**
 Develops ontologies, builds data pipelines, and leverages AI/ML workflows to generate actionable insights from complex, multi-source datasets.
+
 **- ✅ Snowflake & Databricks (Spark SQL).**
 Extracts, queries, and transforms multi-terabyte datasets to deliver scalable insights and support predictive analytics initiatives.
+
 **- ✅ Google Cloud Platform.**
 Builds and deploys machine learning models, manages cloud-based data pipelines, and integrates analytics workflows with enterprise cloud infrastructure.
 
