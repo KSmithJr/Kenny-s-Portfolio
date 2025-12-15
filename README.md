@@ -29,7 +29,7 @@ Leads dynamic reporting, using advanced concepts including calculated fields, pa
 Develops ontologies, builds data pipelines, and leverages AI/ML workflows to generate actionable insights from complex, multi-source datasets.
 
 **- ✅ Snowflake & Databricks (Spark SQL).**
-Extracts, queries, and transforms multi-terabyte datasets to deliver scalable insights and support predictive analytics initiatives.
+Extracts, queries, and transforms multi-terabyte datasets to deliver scalable insights and support predictive analytics initiatives. Builds agents utilizing Cortex AI and Snowfalke Intelligence to empower users to uncover insights using natural language. 
 
 **- ✅ Google Cloud Platform.**
 Builds and deploys machine learning models, manages cloud-based data pipelines, and integrates analytics workflows with enterprise cloud infrastructure.
@@ -41,14 +41,14 @@ Builds and deploys machine learning models, manages cloud-based data pipelines, 
 *A glimpse of some of the projects I've been working on.*
 
 **Automated Credit Risk Engine Using Palantir Foundry & AIP.**
-![image](Palantir Overview.png) 
+![image](Palantir_Overview.png) 
 
 Summary: Selected as one of the thirty fellows admitted into the inagual Palantir American Tech Fellowship where we gained hands-on skills as Forward Deployed Engineers, learning and implementing solutions with Foundry & AIP. As part of my capstone project, I leveraged my background in banking to create an credit risk monitoring engine with built in AI features to fully automate client review and monitoring while providing augmented intelligence to Credit Risk Managers and Analysts with AI Agents that help with decision making. 
 
 Link to demo: https://drive.google.com/file/d/1YakA_eXqDuQUKgS7Lax24i_V5-KO3G3S/view?usp=sharing 
 
 **Predictive Modeling and Hypothesis Testing to help an HR Department Reduce/Plan for Attrition.**
-![image](Decision Tree.png)
+![image](Decision_Tree.png)
 
 Summary: During this project, we were portrayed as consultants to a company looking to understand and plan for attrition within their company. We used statistcal modeling to find the various important attributes and then used them to train a Decision Tree and Logistic Regression model to predict which employees would leave versus which would stay. 
 
