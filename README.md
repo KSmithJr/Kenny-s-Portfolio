@@ -50,6 +50,10 @@ Link to demo: https://drive.google.com/file/d/1YakA_eXqDuQUKgS7Lax24i_V5-KO3G3S/
 **Predictive Modeling and Hypothesis Testing to help an HR Department Reduce/Plan for Attrition.**
 ![image](Decision_Tree.png)
 
+
+
+
+
 Summary: During this project, we were portrayed as consultants to a company looking to understand and plan for attrition within their company. We used statistcal modeling to find the various important attributes and then used them to train a Decision Tree and Logistic Regression model to predict which employees would leave versus which would stay. 
 
 
