@@ -10,7 +10,7 @@ Hello! I'm Kenny Smith 🤓, a Analytics & Insights Manager currently working at
 <!--Mention your top/relevant skills here - core and soft skills-->
 ## WHAT I DO
 
-*With 6+ years of experience in Data Analytics and Data Science, I have gained the following skills.*
+*With 7+ years of experience in Analytics Engineering, I have gained the following skills.*
 ## PROGRAMMING
 **- ✅ Python.**
 Packages used include Pandas, Numpy, MatPlotLib, SciKit-Learn, TensorFlow, Seaborn, Plotly 
@@ -39,6 +39,13 @@ Builds and deploys machine learning models, manages cloud-based data pipelines, 
 ## MY PORTFOLIO 
 
 *A glimpse of some of the projects I've been working on.*
+
+**Automated Credit Risk Engine Using Palantir Foundry & AIP.**
+![image](Palantir Overview.png) 
+
+Summary: Selected as one of the thirty fellows admitted into the inagual Palantir American Tech Fellowship where we gained hands-on skills as Forward Deployed Engineers, learning and implementing solutions with Foundry & AIP. As part of my capstone project, I leveraged my background in banking to create an credit risk monitoring engine with built in AI features to fully automate client review and monitoring while providing augmented intelligence to Credit Risk Managers and Analysts with AI Agents that help with decision making. 
+
+Link to demo: https://drive.google.com/file/d/1YakA_eXqDuQUKgS7Lax24i_V5-KO3G3S/view?usp=sharing 
 
 **Predictive Modeling and Hypothesis Testing to help an HR Department Reduce/Plan for Attrition.**
 ![image](Decision Tree.png)
