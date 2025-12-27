@@ -49,7 +49,7 @@ Link to demo: https://drive.google.com/file/d/1YakA_eXqDuQUKgS7Lax24i_V5-KO3G3S/
 
 
 **Bias Breaker AI Agent Using Google ADK & Gemini API.**
-![image](Bias_Breaker.jpg) 
+![image](Bias.jpg) 
 
 
 
