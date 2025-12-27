@@ -46,6 +46,12 @@ Builds and deploys machine learning models, manages cloud-based data pipelines, 
 Summary: Selected as one of the thirty fellows admitted into the inagual Palantir American Tech Fellowship where we gained hands-on skills as Forward Deployed Engineers, learning and implementing solutions with Foundry & AIP. As part of my capstone project, I leveraged my background in banking to create an credit risk monitoring engine with built in AI features to fully automate client review and monitoring while providing augmented intelligence to Credit Risk Managers and Analysts with AI Agents that help with decision making. 
 
 Link to demo: https://drive.google.com/file/d/1YakA_eXqDuQUKgS7Lax24i_V5-KO3G3S/view?usp=sharing 
+**Bias Breaker AI Agent Using Google ADK & Gemini API.**
+
+Summary: Completed Google's 5 Day AI Agent Intensive Course and completed a capstone project targeted at the 'AI Agent For Good' track. When ensuring compliance when constructing models, many engineers and data professionals are aware of removing features that are known to be directly biased, however indirect bias can occur if not careful. We are defining bias here based off the the "Four-Fifths Rule", which comes from the Uniform Guidelines on Employee Selection Procedures (1978), and were adopted by the Equal Employment Opportunity Commission (EEOC) to enforce the Civil Rights Act of 1964. The guidelines state that
+"A selection rate for any race, sex, or ethnic group which is less than four-fifths (4/5) (or 80%) of the rate for the group with the highest rate will generally be regarded by the Federal enforcement agencies as evidence of adverse impact." Using this precedent, we have created an AI Agent that detects bias in models that would make the model noncompliant and that provides actionable steps to remove the bias and retrain the model.
+![image](Bias_Breaker_Agent_Pipeline.pdf) 
+Code Workbook: https://github.com/KSmithJr/Kenny-s-Portfolio/blob/main/bias-breaker-ai-agent.ipynb
 
 **Predictive Modeling and Hypothesis Testing to help an HR Department Reduce/Plan for Attrition.**
 ![image](Decision.png)
