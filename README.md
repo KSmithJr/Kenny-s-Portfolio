@@ -1,6 +1,14 @@
 # Kenny-s-Portfolio
 Data Portfolio
 
+<script
+	type="module"
+	src="https://gradio.s3-us-west-2.amazonaws.com/5.49.1/gradio.js"
+></script>
+
+<gradio-app src="https://ksmith1996-career-conversations.hf.space"></gradio-app>
+
+
 <!--Section 1: Introduce your self-->
 ## ABOUT ME
 
