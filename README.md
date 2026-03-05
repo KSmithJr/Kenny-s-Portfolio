@@ -12,7 +12,7 @@ Welcome to my portfilio! I built the Digital Twin below to make it easier to lea
 <!--Section 1: Introduce your self-->
 ## ABOUT ME
 
-Hello! I'm Kenny Smith 🤓, a Analytics & Insights Manager currently working at Inteors.AI, an AI-powered SaaS platform monitoring over 230 million entities and 11 billion supplier-buyer relationships designed for real-time supply chain risk management. I thrive in operating at the intersection of data science, data engineering and data analytics, leading teams and initiatives to drive organic growth through powerful reporting and insights, predictive and prescriptive modeling to forecast and support decision making, custom AI Agent and GPT creation, and utilizing an expansive analytics toolkit to automate repeatable tasks. 
+Hello! I'm Kenny Smith 🤓, a Analytics & Insights Manager currently working at Inteors.AI, an AI-powered SaaS platform monitoring over 250 million entities and 11 billion supplier-buyer relationships designed for real-time supply chain risk management. I thrive in operating at the intersection of data science, data engineering and data analytics, leading teams and initiatives to drive organic growth and product market fit through the development of durable data pipelines powered by streaming or batch ETL processes, powerful reporting and insights displayed in intuitive dashboards or integrated within customer facing products, predictive and prescriptive modeling to forecast and support decision making, and agentic workflows and AI agent development to improve efficiency and throughput.   
 
 
 <!--Mention your top/relevant skills here - core and soft skills-->
