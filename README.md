@@ -21,7 +21,7 @@ Hello! I'm Kenny Smith 🤓, a Analytics & Insights Manager currently working at
 *With 8+ years of experience as a full stack data leader, I have gained the following skills.*
 ## PROGRAMMING
 **- ✅ Python.**
-Packages used include Pandas, Numpy, MatPlotLib, SciKit-Learn, TensorFlow, Seaborn, Plotly 
+Packages used include Pandas, Numpy, MatPlotLib, SciKit-Learn, TensorFlow, Seaborn, Plotly, Langchain, Vectordb
 **- ✅ SQL.**
 Experience extracting, querying, and transforming data using Snowflake, Databricks (Spark SQL), Toad for SQL Server, Oracle SQL Developer, PrestoSQL, and Apache Impala (Hadoop) 
 **- ✅ R.**
