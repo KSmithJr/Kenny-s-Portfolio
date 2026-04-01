@@ -1,5 +1,9 @@
 # Kenny-s-Portfolio
-Welcome to my portfilio! I built the Digital Twin below to make it easier to learn more about my background and experience with simple prompts. I engineered it using the OpenAI API trained on my LinkedIn data. Responses are evaluated and fact checked using an additional Anthropic Claude API, with the chatbot interface built using Gradio and deployed via Hugging Face. Enjoy!
+Welcome to my portfolio. I built the digital twin below to make it easier to explore my background and experience through natural language prompts.
+
+The system is powered by LLM APIs and uses a retrieval-based approach over my LinkedIn data to generate responses grounded in my actual experience. I also incorporated a secondary model for response evaluation and consistency checks.
+
+The interface is built with Gradio and deployed via Hugging Face.
 
 <script
 	type="module"
