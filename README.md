@@ -121,7 +121,7 @@ Summary: Completed this project as part of coursework at Georgia Tech Micromaste
     </tr>
     <tr>
       <td>⬇️</td>
-      <td><a href="Kenneth Smith 2026-2027 Resume (3).pdf">Download my CV</a></td>
+     
     </tr>
     <tr>
       <td>🌐</td>
