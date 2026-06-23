@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kenny Smith — AI Systems Builder</title>
+  <meta name="description" content="Kenny Smith is an AI systems builder and analytics leader architecting agentic workflows, data pipelines, and intelligence platforms for enterprise." />
+  <meta property="og:title" content="Kenny Smith — AI Systems Builder" />
+  <meta property="og:description" content="Architecting agentic workflows, intelligence platforms, and data systems for enterprise." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.49.1/gradio.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:       #0A0F1E;
+      --surface:  #141929;
+      --card:     #1A2138;
+      --border:   #252D47;
+      --accent:   #5B4FE8;
+      --accent-2: #7B6FFF;
+      --green:    #22c55e;
+      --text:     #F0EDE6;
+      --muted:    #8A93B0;
+      --dim:      #4A5270;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    #progress-bar { position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); z-index: 200; transition: width 0.1s linear; }
+
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.4; }
+
+    .container { max-width: 980px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+    section { padding: 5.5rem 0; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.1rem 2.5rem; display: flex; justify-content: space-between; align-items: center; background: rgba(10,15,30,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--text); text-decoration: none; }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-resume { font-size: 0.8rem; font-weight: 600; font-family: 'Space Grotesk', sans-serif; color: var(--accent-2); text-decoration: none; border: 1px solid var(--accent); padding: 0.35rem 0.9rem; border-radius: 4px; transition: background 0.2s, color 0.2s; }
+    .nav-resume:hover { background: var(--accent); color: #fff; }
+
+    /* HERO */
+    #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 5rem; position: relative; overflow: hidden; }
+    #hero::after { content: ''; position: absolute; top: 10%; right: 15%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(91,79,232,0.10) 0%, transparent 70%); pointer-events: none; }
+    .hero-inner { display: grid; grid-template-columns: 1fr auto; gap: 5rem; align-items: center; width: 100%; }
+    .hero-photo-wrap { flex-shrink: 0; }
+    .hero-photo-ring { width: 220px; height: 220px; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, var(--accent), var(--accent-2), transparent); position: relative; }
+    .hero-photo-ring::before { content: ''; position: absolute; inset: -8px; border-radius: 50%; background: radial-gradient(circle, rgba(91,79,232,0.18) 0%, transparent 70%); }
+    .hero-photo { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center top; display: block; }
+    .hero-photo-fallback { width: 100%; height: 100%; border-radius: 50%; background: var(--card); display: none; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 700; color: var(--accent-2); }
+    .hero-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+    .hero-eyebrow::before { content: ''; display: block; width: 1.75rem; height: 1px; background: var(--accent-2); }
+    h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.2rem, 5.5vw, 3.6rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 1.25rem; }
+    h1 span.accent { color: var(--accent-2); }
+    .terminal-line { font-family: 'Space Grotesk', sans-serif; font-size: clamp(0.95rem, 2vw, 1.15rem); color: var(--muted); margin-bottom: 2rem; min-height: 1.8em; }
+    .terminal-text { color: var(--text); }
+    .cursor { display: inline-block; width: 2px; height: 1em; background: var(--accent-2); margin-left: 2px; vertical-align: text-bottom; animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero-bio { color: var(--muted); max-width: 540px; font-size: 0.97rem; line-height: 1.75; margin-bottom: 2rem; }
+    .hero-ctas { display: flex; gap: 0.875rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent); color: #fff; text-decoration: none; padding: 0.7rem 1.4rem; border-radius: 6px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.875rem; transition: background 0.2s, transform 0.15s; border: none; cursor: pointer; }
+    .btn-primary:hover { background: var(--accent-2); transform: translateY(-1px); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: var(--text); text-decoration: none; padding: 0.7rem 1.4rem; border-radius: 6px; border: 1px solid var(--border); font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 0.875rem; transition: border-color 0.2s, transform 0.15s; }
+    .btn-ghost:hover { border-color: var(--accent-2); transform: translateY(-1px); }
+    .hero-stats { display: flex; gap: 2.5rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .stat-number { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
+    .stat-label { font-size: 0.72rem; color: var(--dim); letter-spacing: 0.05em; margin-top: 0.25rem; }
+
+    /* TWIN */
+    #twin { padding: 0 0 5.5rem; }
+    .twin-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; position: relative; }
+    .twin-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent 0%, var(--accent) 40%, var(--accent-2) 60%, transparent 100%); z-index: 2; }
+    .twin-header { padding: 1.75rem 2.5rem 1.5rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start; }
+    .twin-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .twin-live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .twin-card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+    .twin-desc { color: var(--muted); font-size: 0.875rem; line-height: 1.6; }
+    .twin-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.875rem; }
+    .twin-badge { font-size: 0.7rem; color: var(--dim); background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 0.18rem 0.55rem; }
+    .twin-hint { font-size: 0.75rem; color: var(--dim); font-style: italic; white-space: nowrap; padding-top: 0.25rem; }
+    .gradio-wrap { border-top: 1px solid var(--border); background: var(--card); padding: 0; }
+    gradio-app { display: block; width: 100%; }
+
+    /* SECTION HEADERS */
+    .section-header { margin-bottom: 3rem; }
+    .section-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 0.65rem; }
+    .section-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; }
+
+    /* PROJECT CARDS */
+    .projects-grid { display: grid; gap: 1.25rem; }
+    .project-card { background: var(--card); border: 1px solid var(--border); border-left: 3px solid transparent; border-radius: 10px; padding: 1.75rem 2rem; transition: border-left-color 0.2s, transform 0.2s; }
+    .project-card:hover { border-left-color: var(--accent); transform: translateX(3px); }
+    .project-outcome { font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 0.4rem; }
+    .project-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.65rem; line-height: 1.3; }
+    .project-card > p { color: var(--muted); font-size: 0.875rem; line-height: 1.7; margin-bottom: 1.1rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
+    .tag { font-size: 0.68rem; font-weight: 500; color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 0.18rem 0.55rem; }
+
+    /* CARD FOOTER ROW */
+    .card-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+    .toggle-btn { background: none; border: none; padding: 0; font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 600; color: var(--accent-2); cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem; transition: color 0.2s; }
+    .toggle-btn:hover { color: var(--text); }
+    .toggle-icon { display: inline-block; transition: transform 0.25s; }
+    .toggle-btn.open .toggle-icon { transform: rotate(45deg); }
+    .external-link { font-size: 0.78rem; font-weight: 500; color: var(--dim); text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; transition: color 0.2s; }
+    .external-link:hover { color: var(--muted); }
+
+    /* EXPANDABLE PANEL */
+    .project-detail { max-height: 0; overflow: hidden; transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1); }
+    .project-detail.open { max-height: 1200px; }
+    .project-detail-inner { border-top: 1px solid var(--border); margin-top: 1.25rem; padding-top: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+
+    /* PIPELINE DIAGRAM */
+    .pipeline-wrap { background: #0D1117; border: 1px solid #30363d; border-radius: 8px; padding: 1.5rem; overflow-x: auto; }
+    .pipeline-title { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); margin-bottom: 1.25rem; }
+    .pipeline { display: flex; align-items: stretch; gap: 0; min-width: max-content; }
+    .pipe-step { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; text-align: center; min-width: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .pipe-step.highlight { border-color: var(--accent); background: rgba(91,79,232,0.13); }
+    .pipe-icon { font-size: 1.25rem; margin-bottom: 0.35rem; }
+    .pipe-name { font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+    .pipe-name.accent-name { color: var(--accent-2); }
+    .pipe-sub { font-size: 0.6rem; color: var(--dim); margin-top: 0.2rem; line-height: 1.4; }
+    .pipe-arrow { color: var(--accent-2); font-size: 1.1rem; padding: 0 0.6rem; display: flex; align-items: center; flex-shrink: 0; }
+
+    /* DETAIL PROSE */
+    .detail-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); margin-bottom: 0.5rem; }
+    .detail-text { font-size: 0.875rem; color: var(--muted); line-height: 1.72; }
+
+    /* RESULTS ROW */
+    .results-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+    .result-card { background: #0D1117; border: 1px solid #30363d; border-radius: 6px; padding: 0.875rem 1rem; text-align: center; }
+    .result-val { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; }
+    .result-val.good { color: #4ade80; }
+    .result-val.warn { color: #facc15; }
+    .result-val.info { color: var(--accent-2); }
+    .result-key { font-size: 0.65rem; color: var(--dim); margin-top: 0.25rem; line-height: 1.3; }
+
+    /* STACK */
+    #stack { padding: 3.5rem 0; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1rem; }
+    .stack-group { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+    .stack-group-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dim); margin-bottom: 0.75rem; }
+    .stack-items { display: flex; flex-direction: column; gap: 0.4rem; }
+    .stack-item { font-size: 0.82rem; color: var(--muted); }
+
+    /* BACKGROUND */
+    #background { padding: 5.5rem 0; }
+    .bg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .timeline { display: flex; flex-direction: column; }
+    .timeline-item { display: grid; grid-template-columns: 1rem 1fr; gap: 1rem; padding-bottom: 2rem; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 0.4rem; flex-shrink: 0; position: relative; }
+    .timeline-item:not(:last-child) .timeline-dot::after { content: ''; position: absolute; top: 10px; left: 3px; width: 1px; height: calc(100% + 2.5rem); background: var(--border); }
+    .timeline-company { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.1rem; }
+    .timeline-role { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.1rem; line-height: 1.4; }
+    .timeline-date { font-size: 0.68rem; color: var(--dim); }
+    .edu-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.25rem; margin-bottom: 0.875rem; }
+    .edu-card:last-child { margin-bottom: 0; }
+    .edu-school { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .edu-degree { font-size: 0.78rem; color: var(--muted); }
+
+    /* CONTACT */
+    #contact { padding: 5.5rem 0 7rem; text-align: center; position: relative; }
+    #contact::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 400px; height: 300px; background: radial-gradient(circle, rgba(91,79,232,0.08) 0%, transparent 70%); pointer-events: none; }
+    #contact h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.875rem; }
+    #contact p { color: var(--muted); max-width: 440px; margin: 0 auto 2rem; font-size: 0.93rem; line-height: 1.7; }
+    .contact-links { display: flex; justify-content: center; gap: 0.875rem; flex-wrap: wrap; }
+
+    footer { border-top: 1px solid var(--border); padding: 1.4rem 2.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--dim); position: relative; z-index: 1; }
+    hr.divider { border: none; border-top: 1px solid var(--border); }
+
+    .fade-up { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-photo-wrap { order: -1; display: flex; justify-content: center; }
+      .hero-photo-ring { width: 160px; height: 160px; }
+      .bg-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .twin-header { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      .results-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 580px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      .hero-ctas { flex-direction: column; }
+      .btn-primary, .btn-ghost { justify-content: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; }
+      .cursor, .twin-live-dot { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav>
+  <a class="nav-logo" href="#hero">Kenny Smith</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#twin">AI Twin</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#background">Background</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="https://www.linkedin.com/in/kenneth-a-smith/" target="_blank" class="nav-resume">Resume ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">AI Builder · Atlanta, GA</p>
+        <h1>Kenny Smith<br /><span class="accent">Analytics &amp; AI</span><br />Systems Architect</h1>
+        <div class="terminal-line"><span class="terminal-text" id="typed-text"></span><span class="cursor"></span></div>
+        <p class="hero-bio">I architect agentic workflows, intelligence platforms, and data pipelines that close the gap between raw data and real decisions — across enterprise supply chain, financial services, and SaaS. 8+ years building end-to-end, from ETL to LLM.</p>
+        <div class="hero-ctas">
+          <a href="#twin" class="btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            Talk to My AI Twin
+          </a>
+          <a href="#work" class="btn-ghost">View Work ↓</a>
+          <a href="https://www.linkedin.com/in/kenneth-a-smith/" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">Years in data</div></div>
+          <div class="stat-item"><div class="stat-number">450M+</div><div class="stat-label">Entities monitored</div></div>
+          <div class="stat-item"><div class="stat-number">100+</div><div class="stat-label">Enterprise customers</div></div>
+        </div>
+      </div>
+      <div class="hero-photo-wrap fade-up">
+        <div class="hero-photo-ring">
+          <img class="hero-photo"
+            src="https://raw.githubusercontent.com/KSmithJr/Kenny-s-Portfolio/main/IMG_3316%20(1).jpg"
+            alt="Kenny Smith"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="hero-photo-fallback">KS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHATBOT -->
+<div id="twin">
+  <div class="container">
+    <div class="twin-card fade-up">
+      <div class="twin-header">
+        <div>
+          <p class="twin-label"><span class="twin-live-dot"></span> Live · AI-Powered</p>
+          <h2>Ask Me Anything — Literally</h2>
+          <p class="twin-desc">A retrieval-augmented AI agent trained on my career data. Ask about my background, a specific project, or whether I'd be a fit for your role. Built with LangChain, vector retrieval, and a dual-model evaluation loop to keep answers grounded in my actual experience.</p>
+          <div class="twin-meta">
+            <span class="twin-badge">RAG</span>
+            <span class="twin-badge">LangChain</span>
+            <span class="twin-badge">Gradio</span>
+            <span class="twin-badge">Hugging Face Agents</span>
+            <span class="twin-badge">Dual-model eval</span>
+          </div>
+        </div>
+        <p class="twin-hint">No login required ↓</p>
+      </div>
+      <div class="gradio-wrap">
+        <gradio-app src="https://ksmith1996-career-conversations.hf.space"></gradio-app>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="container">
+    <div class="section-header fade-up">
+      <p class="section-eyebrow">Selected Work</p>
+      <h2>Projects that shipped,<br />not just notebooks</h2>
+    </div>
+    <div class="projects-grid">
+
+      <!-- PALANTIR -->
+      <div class="project-card fade-up">
+        <p class="project-outcome">Agentic AI · Palantir Foundry · FDE Fellowship</p>
+        <h3>Automated Credit Risk Engine with AI-Augmented Decision Making</h3>
+        <p>Selected as one of 30 fellows in the inaugural Palantir American Tech Fellowship — a Forward Deployed Engineering track. Built a full credit risk monitoring engine in Foundry: ingestion pipelines, PySpark transforms, Contour dashboards, and embedded AIP Agents that automate client review cycles and deliver augmented intelligence to Credit Risk Managers.</p>
+        <div class="project-tags">
+          <span class="tag">Palantir Foundry</span><span class="tag">AIP</span><span class="tag">PySpark</span><span class="tag">Ontology Design</span><span class="tag">AI Agents</span><span class="tag">Credit Risk</span>
+        </div>
+        <div class="card-footer">
+          <button class="toggle-btn" onclick="toggleDetail('detail-palantir', this)"><span class="toggle-icon">+</span> Show Detail</button>
+          <a href="https://drive.google.com/file/d/1YakA_eXqDuQUKgS7Lax24i_V5-KO3G3S/view?usp=sharing" target="_blank" class="external-link">▶ Watch Demo ↗</a>
+        </div>
+        <div class="project-detail" id="detail-palantir">
+          <div class="project-detail-inner">
+            <div>
+              <p class="detail-label">End-to-end Foundry pipeline</p>
+              <div class="pipeline-wrap">
+                <div class="pipeline">
+                  <div class="pipe-step"><div class="pipe-icon">📥</div><div class="pipe-name">Raw Ingestion</div><div class="pipe-sub">Multi-source data connectors</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">⚙️</div><div class="pipe-name">PySpark Transforms</div><div class="pipe-sub">Clean, enrich, normalize</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">🗂️</div><div class="pipe-name">Ontology Layer</div><div class="pipe-sub">Objects &amp; relationships</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">📊</div><div class="pipe-name">Contour Dashboards</div><div class="pipe-sub">Analyst-facing views</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step highlight"><div class="pipe-icon">🤖</div><div class="pipe-name accent-name">AIP Agents</div><div class="pipe-sub">Automate review queue</div></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="detail-label">What the agents do</p>
+              <p class="detail-text">The AIP agents replace repetitive manual credit review steps — ingesting each client's latest financial signals, comparing against risk thresholds defined in the ontology, auto-resolving routine reviews, and escalating edge cases to analysts with pre-populated context and a recommended action. Reduces analyst workload while keeping humans in the loop on complex decisions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BIAS BREAKER -->
+      <div class="project-card fade-up">
+        <p class="project-outcome">AI Agent for Good · Google ADK · Gemini API</p>
+        <h3>Bias Breaker — ML Fairness Compliance Agent</h3>
+        <p>Capstone for Google's 5-Day AI Agent Intensive. Built an agent that detects indirect bias in ML models using the EEOC Four-Fifths Rule — a compliance standard most engineers overlook. The agent identifies non-obvious proxy features causing adverse impact and generates a step-by-step remediation plan to retrain compliant models.</p>
+        <div class="project-tags">
+          <span class="tag">Google ADK</span><span class="tag">Gemini API</span><span class="tag">AI Agents</span><span class="tag">ML Fairness</span><span class="tag">EEOC Four-Fifths Rule</span><span class="tag">Python</span>
+        </div>
+        <div class="card-footer">
+          <button class="toggle-btn" onclick="toggleDetail('detail-bias', this)"><span class="toggle-icon">+</span> Show Detail</button>
+          <div style="display:flex;gap:1rem;">
+            <a href="https://github.com/KSmithJr/Kenny-s-Portfolio/blob/main/Bias_Breaker_Agent_Pipeline.pdf" target="_blank" class="external-link">Slides ↗</a>
+            <a href="https://github.com/KSmithJr/Kenny-s-Portfolio/blob/main/bias-breaker-ai-agent.ipynb" target="_blank" class="external-link">Notebook ↗</a>
+          </div>
+        </div>
+        <div class="project-detail" id="detail-bias">
+          <div class="project-detail-inner">
+            <div>
+              <p class="detail-label">Agent pipeline — detection &amp; remediation</p>
+              <div class="pipeline-wrap">
+                <div class="pipeline">
+                  <div class="pipe-step"><div class="pipe-icon">📂</div><div class="pipe-name">Load Model &amp; Data</div><div class="pipe-sub">Trained classifier + dataset</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">📊</div><div class="pipe-name">Compute Selection Rates</div><div class="pipe-sub">Per demographic group</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step highlight"><div class="pipe-icon">⚖️</div><div class="pipe-name accent-name">4/5 Rule Check</div><div class="pipe-sub">EEOC threshold &lt; 80%</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">🔍</div><div class="pipe-name">Proxy Trace</div><div class="pipe-sub">Find indirect bias source</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step highlight"><div class="pipe-icon">🛠️</div><div class="pipe-name accent-name">Remediation Plan</div><div class="pipe-sub">Drop, reweight, retrain</div></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="detail-label">Why this matters</p>
+              <p class="detail-text">Engineers routinely remove directly biased features (race, gender) but miss indirect proxies — zip code correlating with race, tenure correlating with age. The EEOC Four-Fifths Rule provides a legal threshold most ML pipelines are never tested against. This agent makes compliance auditing automatic: it surfaces violations, traces them to the proxies causing them, and tells the data team exactly what to fix.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ATTRITION -->
+      <div class="project-card fade-up">
+        <p class="project-outcome">Predictive Modeling · R · Consultant Engagement</p>
+        <h3>Workforce Attrition Modeling for HR Strategy</h3>
+        <p>Acted as a data science consultant to model and predict employee attrition. Used information gain and chi-squared tests for feature selection, then trained and compared a Decision Tree vs. Logistic Regression model on validation and test sets. Deliverable: a probability-scored model HR could use to rank at-risk employees and target retention spend.</p>
+        <div class="project-tags">
+          <span class="tag">R</span><span class="tag">Decision Tree</span><span class="tag">Logistic Regression</span><span class="tag">Information Gain</span><span class="tag">Chi-Squared</span><span class="tag">caret</span>
+        </div>
+        <div class="card-footer">
+          <button class="toggle-btn" onclick="toggleDetail('detail-attrition', this)"><span class="toggle-icon">+</span> Show Detail</button>
+          <a href="https://drive.google.com/drive/folders/1ilPszHCMcltSQQeigEya-av1lxLnHdla?usp=drive_link" target="_blank" class="external-link">View Full Project ↗</a>
+        </div>
+        <div class="project-detail" id="detail-attrition">
+          <div class="project-detail-inner">
+            <div>
+              <p class="detail-label">Modeling pipeline</p>
+              <div class="pipeline-wrap">
+                <div class="pipeline">
+                  <div class="pipe-step"><div class="pipe-icon">📋</div><div class="pipe-name">HR Dataset</div><div class="pipe-sub">Employee records + outcome</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">🔬</div><div class="pipe-name">Feature Selection</div><div class="pipe-sub">Info gain + chi-squared</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">🌳</div><div class="pipe-name">Decision Tree</div><div class="pipe-sub">Interpretable classifier</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step highlight"><div class="pipe-icon">📈</div><div class="pipe-name accent-name">Logistic Regression</div><div class="pipe-sub">Probability scoring</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">🎯</div><div class="pipe-name">Ranked Risk List</div><div class="pipe-sub">HR action output</div></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="detail-label">Key findings</p>
+              <p class="detail-text">Top attrition predictors: OverTime status, Monthly Income, Job Satisfaction score, Years Since Last Promotion, and Distance From Home. Logistic Regression was recommended over the Decision Tree for its probabilistic output — giving HR a ranked list of at-risk employees rather than a binary flag, enabling tiered retention interventions rather than blanket programs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REAL ESTATE -->
+      <div class="project-card fade-up">
+        <p class="project-outcome">EDA · Linear Regression · Python</p>
+        <h3>Predicting U.S. Home Price Trends Post-COVID</h3>
+        <p>Launched during the post-COVID housing surge to identify what was driving unprecedented home price increases and forecast where they were headed. Combined exploratory data analysis to surface causal factors with a linear regression model trained on housing supply, mortgage rates, income, and a remote work adoption index.</p>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">Seaborn</span><span class="tag">Matplotlib</span><span class="tag">Linear Regression</span>
+        </div>
+        <div class="card-footer">
+          <button class="toggle-btn" onclick="toggleDetail('detail-realestate', this)"><span class="toggle-icon">+</span> Show Detail</button>
+          <a href="https://drive.google.com/drive/folders/1Ki2uTiqJPgr1ksEgQ4fXv2TIjd1eccV6?usp=drive_link" target="_blank" class="external-link">View Full Project ↗</a>
+        </div>
+        <div class="project-detail" id="detail-realestate">
+          <div class="project-detail-inner">
+            <div>
+              <p class="detail-label">Analysis pipeline</p>
+              <div class="pipeline-wrap">
+                <div class="pipeline">
+                  <div class="pipe-step"><div class="pipe-icon">🏠</div><div class="pipe-name">Housing Data</div><div class="pipe-sub">Price, supply, rates, income</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">🔎</div><div class="pipe-name">EDA</div><div class="pipe-sub">Distributions, correlations</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step highlight"><div class="pipe-icon">🌐</div><div class="pipe-name accent-name">Remote Work Index</div><div class="pipe-sub">Novel COVID signal</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">📐</div><div class="pipe-name">Linear Regression</div><div class="pipe-sub">Feature engineering + scaling</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">🎯</div><div class="pipe-name">Price Forecast</div><div class="pipe-sub">R² = 0.81 on test set</div></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="detail-label">Key insight</p>
+              <p class="detail-text">Remote work adoption index emerged as the strongest novel predictor — capturing the geographic demand shift from dense metros to secondary markets. Mortgage rate and housing inventory remained dominant classical predictors, but their interaction with the remote work signal explained the unusual speed and geographic pattern of the post-COVID price surge.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- STACK -->
+<section id="stack">
+  <div class="container">
+    <div class="section-header fade-up">
+      <p class="section-eyebrow">Technical Stack</p>
+      <h2>What I build with</h2>
+    </div>
+    <div class="stack-grid fade-up">
+      <div class="stack-group">
+        <p class="stack-group-label">Languages</p>
+        <div class="stack-items">
+          <span class="stack-item">Python — Pandas, NumPy, Scikit-learn, TensorFlow, LangChain, Seaborn, Plotly</span>
+          <span class="stack-item">SQL — Snowflake, Databricks, Spark SQL, Impala, Oracle, PrestoSQL</span>
+          <span class="stack-item">R — ggplot2, caret, e1071</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <p class="stack-group-label">AI / Agentic Platforms</p>
+        <div class="stack-items">
+          <span class="stack-item">Palantir Foundry &amp; AIP</span>
+          <span class="stack-item">Google ADK · Gemini API</span>
+          <span class="stack-item">Snowflake Cortex AI &amp; Snowflake Intelligence</span>
+          <span class="stack-item">Hugging Face · Gradio</span>
+          <span class="stack-item">LangChain · VectorDB</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <p class="stack-group-label">Data &amp; Cloud</p>
+        <div class="stack-items">
+          <span class="stack-item">Snowflake · Databricks (Spark SQL)</span>
+          <span class="stack-item">Google Cloud Platform</span>
+          <span class="stack-item">Alteryx — 100+ workflows</span>
+          <span class="stack-item">Tableau</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <p class="stack-group-label">Fellowships &amp; Certs</p>
+        <div class="stack-items">
+          <span class="stack-item">Palantir American Tech Fellow (inaugural cohort)</span>
+          <span class="stack-item">Google Data Engineering / ML on GCP</span>
+          <span class="stack-item">Google 5-Day AI Agent Intensive</span>
+          <span class="stack-item">Correlation One Data Science Fellow</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BACKGROUND -->
+<section id="background">
+  <div class="container">
+    <div class="section-header fade-up">
+      <p class="section-eyebrow">Background</p>
+      <h2>Where I've built</h2>
+    </div>
+    <div class="bg-grid">
+      <div class="fade-up">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div>
+              <p class="timeline-company">Interos.ai</p>
+              <p class="timeline-role">Analytics &amp; Insights Manager — Rebuilt customer &amp; GTM analytics as an end-to-end agentic workflow supporting 100+ enterprise customers with supply chain disruption and sales intelligence</p>
+              <p class="timeline-date">Current · Atlanta, GA</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div>
+              <p class="timeline-company">Bank of America</p>
+              <p class="timeline-role">AVP — Procurement Operations &amp; Enterprise Credit Data Strategy &amp; Governance</p>
+              <p class="timeline-date">Prior</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div>
+              <p class="timeline-company">Supply Chain Operations</p>
+              <p class="timeline-role">Warehouse &amp; Distribution Center Leadership — the operational ground-truth that informs how I think about measurement and process design</p>
+              <p class="timeline-date">Early Career</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <p class="section-eyebrow" style="margin-bottom:1rem;">Education</p>
+        <div class="edu-card">
+          <p class="edu-school">Georgia Institute of Technology</p>
+          <p class="edu-degree">M.S. Computational Data Analytics <span style="color:var(--dim)">· In Progress</span></p>
+        </div>
+        <div class="edu-card">
+          <p class="edu-school">Georgia Southern University</p>
+          <p class="edu-degree">B.B.A. Supply Chain Management &amp; Marketing</p>
+        </div>
+        <div class="edu-card">
+          <p class="edu-school">Between Takes</p>
+          <p class="edu-degree">Co-Founder · Independent digital media covering emerging filmmakers and creators — YouTube &amp; Instagram</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="fade-up">Let's build something.</h2>
+    <p class="fade-up">Open to senior analytics, AI product, and forward deployed engineering roles. Happy to talk agentic systems, supply chain intelligence, or Between Takes.</p>
+    <div class="contact-links fade-up">
+      <a href="https://www.linkedin.com/in/kenneth-a-smith/" target="_blank" class="btn-primary">LinkedIn ↗</a>
+      <a href="mailto:kennethasmith96@gmail.com" class="btn-ghost">Email Me</a>
+      <a href="https://github.com/KSmithJr" target="_blank" class="btn-ghost">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Kenny Smith</span>
+  <span>Atlanta, GA · Built with intention</span>
+</footer>
+
+<script>
+  // PROGRESS BAR
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    bar.style.width = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100) + '%';
+  }, { passive: true });
+
+  // TYPEWRITER
+  const phrases = [
+    "Building the agentic layer between data and decisions.",
+    "From ETL pipelines to LLM-powered intelligence.",
+    "Enterprise AI. Real deployments. Measurable outcomes."
+  ];
+  let pi = 0, ci = 0, del = false;
+  const typer = document.getElementById('typed-text');
+  function type() {
+    const cur = phrases[pi];
+    if (!del) {
+      typer.textContent = cur.slice(0, ++ci);
+      if (ci === cur.length) { del = true; setTimeout(type, 2400); return; }
+    } else {
+      typer.textContent = cur.slice(0, --ci);
+      if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; }
+    }
+    setTimeout(type, del ? 26 : 50);
+  }
+  setTimeout(type, 900);
+
+  // SCROLL FADE
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // EXPANDABLE PANELS
+  function toggleDetail(id, btn) {
+    const panel = document.getElementById(id);
+    const isOpen = panel.classList.contains('open');
+    document.querySelectorAll('.project-detail').forEach(p => p.classList.remove('open'));
+    document.querySelectorAll('.toggle-btn').forEach(b => {
+      b.classList.remove('open');
+      b.querySelector('.toggle-icon').textContent = '+';
+      const label = b.textContent.trim();
+      if (label.includes('Hide')) b.innerHTML = b.innerHTML.replace('Hide', 'Show');
+    });
+    if (!isOpen) {
+      panel.classList.add('open');
+      btn.classList.add('open');
+      btn.querySelector('.toggle-icon').textContent = '×';
+    }
+  }
+</script>
+</body>
+</html>
