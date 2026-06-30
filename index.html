@@ -71,9 +71,21 @@
     .btn-primary:hover { background: var(--accent-2); transform: translateY(-1px); }
     .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: var(--text); text-decoration: none; padding: 0.7rem 1.4rem; border-radius: 6px; border: 1px solid var(--border); font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 0.875rem; transition: border-color 0.2s, transform 0.15s; }
     .btn-ghost:hover { border-color: var(--accent-2); transform: translateY(-1px); }
-    .hero-stats { display: flex; gap: 2.5rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
     .stat-number { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
-    .stat-label { font-size: 0.72rem; color: var(--dim); letter-spacing: 0.05em; margin-top: 0.25rem; }
+    .stat-label { font-size: 0.72rem; color: var(--dim); letter-spacing: 0.05em; margin-top: 0.25rem; line-height: 1.4; max-width: 150px; }
+
+    /* LOGO MARQUEE */
+    #logo-strip { padding: 2.25rem 0; border-bottom: 1px solid var(--border); overflow: hidden; }
+    .logo-strip-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); text-align: center; margin-bottom: 1.5rem; }
+    .marquee-track-wrap { position: relative; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+    .marquee-track { display: flex; width: max-content; animation: scroll-marquee 32s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-group { display: flex; align-items: center; flex-shrink: 0; }
+    .marquee-item { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.02em; color: var(--dim); white-space: nowrap; padding: 0 2.75rem; transition: color 0.2s; }
+    .marquee-item:hover { color: var(--muted); }
+    @keyframes scroll-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
     /* TWIN */
     #twin { padding: 0 0 5.5rem; }
@@ -163,6 +175,8 @@
     .timeline-item:not(:last-child) .timeline-dot::after { content: ''; position: absolute; top: 10px; left: 3px; width: 1px; height: calc(100% + 2.5rem); background: var(--border); }
     .timeline-company { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.1rem; }
     .timeline-role { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.1rem; line-height: 1.4; }
+    .timeline-stats { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
+    .timeline-stat-badge { font-size: 0.68rem; font-weight: 600; font-family: 'Space Grotesk', sans-serif; color: var(--accent-2); background: rgba(91,79,232,0.1); border: 1px solid rgba(91,79,232,0.25); border-radius: 4px; padding: 0.2rem 0.55rem; }
     .timeline-date { font-size: 0.68rem; color: var(--dim); }
     .edu-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.25rem; margin-bottom: 0.875rem; }
     .edu-card:last-child { margin-bottom: 0; }
@@ -238,9 +252,10 @@
           <a href="https://www.linkedin.com/in/kenneth-a-smith/" target="_blank" class="btn-ghost">LinkedIn ↗</a>
         </div>
         <div class="hero-stats">
-          <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">Years in data</div></div>
-          <div class="stat-item"><div class="stat-number">450M+</div><div class="stat-label">Entities monitored</div></div>
-          <div class="stat-item"><div class="stat-number">100+</div><div class="stat-label">Enterprise customers</div></div>
+          <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">Years building analytics &amp; AI systems</div></div>
+          <div class="stat-item"><div class="stat-number">$600B+</div><div class="stat-label">Portfolio intelligence coverage</div></div>
+          <div class="stat-item"><div class="stat-number">$1B+</div><div class="stat-label">Procurement transaction scale</div></div>
+          <div class="stat-item"><div class="stat-number">11B+</div><div class="stat-label">Graph edges · 250M+ entities normalized</div></div>
         </div>
       </div>
       <div class="hero-photo-wrap fade-up">
@@ -255,6 +270,31 @@
     </div>
   </div>
 </section>
+
+<!-- LOGO MARQUEE -->
+<div id="logo-strip">
+  <div class="container">
+    <p class="logo-strip-label fade-up">Where I've Built</p>
+  </div>
+  <div class="marquee-track-wrap fade-up">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span class="marquee-item">Interos.ai</span>
+        <span class="marquee-item">Bank of America</span>
+        <span class="marquee-item">Stanley Black &amp; Decker</span>
+        <span class="marquee-item">Lowe's</span>
+        <span class="marquee-item">Collins Aerospace</span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span class="marquee-item">Interos.ai</span>
+        <span class="marquee-item">Bank of America</span>
+        <span class="marquee-item">Stanley Black &amp; Decker</span>
+        <span class="marquee-item">Lowe's</span>
+        <span class="marquee-item">Collins Aerospace</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- CHATBOT -->
 <div id="twin">
@@ -514,7 +554,11 @@
             <div class="timeline-dot"></div>
             <div>
               <p class="timeline-company">Interos.ai</p>
-              <p class="timeline-role">Analytics &amp; Insights Manager — Rebuilt customer &amp; GTM analytics as an end-to-end agentic workflow supporting 100+ enterprise customers with supply chain disruption and sales intelligence</p>
+              <p class="timeline-role">Applied AI Insights Manager — Rebuilt customer &amp; GTM analytics as an end-to-end agentic workflow supporting 100+ enterprise customers with supply chain disruption and sales intelligence</p>
+              <div class="timeline-stats">
+                <span class="timeline-stat-badge">11B+ edge knowledge graph analyzed for customer insights &amp; GTM strategy</span>
+                <span class="timeline-stat-badge">250M+ entities surfaced for supply chain intelligence</span>
+              </div>
               <p class="timeline-date">Current · Atlanta, GA</p>
             </div>
           </div>
@@ -522,7 +566,11 @@
             <div class="timeline-dot"></div>
             <div>
               <p class="timeline-company">Bank of America</p>
-              <p class="timeline-role">AVP — Procurement Operations &amp; Enterprise Credit Data Strategy &amp; Governance</p>
+              <p class="timeline-role">AVP — Enterprise Credit Data Strategy &amp; Governance, Procurement Operations. Shaped data strategy and analytics for portfolio oversight, governance, and regulatory reporting</p>
+              <div class="timeline-stats">
+                <span class="timeline-stat-badge">$600B+ credit portfolio data modeled for regulatory reporting</span>
+                <span class="timeline-stat-badge">$1B+ vendor spend analyzed for procurement optimization</span>
+              </div>
               <p class="timeline-date">Prior</p>
             </div>
           </div>
@@ -538,7 +586,6 @@
           <p class="edu-school">Georgia Southern University</p>
           <p class="edu-degree">B.B.A. Supply Chain Management &amp; Marketing</p>
         </div>
-        <div class="edu-card">
       </div>
     </div>
   </div>
