@@ -11,9 +11,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-  <script
-    type="module"
-  ></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -297,80 +294,71 @@
 </div>
 
 <!-- CHATBOT -->
-<!-- ===== AI DIGITAL TWIN (AWS) — replaces HF-based "Ask Me Anything" section ===== -->
-<div class="section-eyebrow">Live · Serverless AWS</div>
+<div id="twin">
+  <div class="container">
+    <div class="twin-card fade-up">
+      <div class="twin-header">
+        <div>
+          <p class="twin-label"><span class="twin-live-dot"></span> Live · Serverless AWS</p>
+          <h2>Ask My AI Digital Twin</h2>
+          <p class="twin-desc">A conversational AI agent trained on my career data — running on a fully serverless AWS stack I architected and deployed myself: CloudFront, S3, API Gateway, and Lambda in front of an LLM API, with persistent conversation memory. Ask about my background, a specific project, or whether I'd be a fit for your role.</p>
+          <div class="twin-meta">
+            <span class="twin-badge">AWS Lambda</span>
+            <span class="twin-badge">API Gateway</span>
+            <span class="twin-badge">CloudFront CDN</span>
+            <span class="twin-badge">S3</span>
+            <span class="twin-badge">Next.js</span>
+            <span class="twin-badge">Serverless</span>
+          </div>
+        </div>
+        <p class="twin-hint">No login required ↓</p>
+      </div>
 
-<h2>My AI Digital Twin — Deployed on Production AWS Infrastructure</h2>
+      <div class="gradio-wrap">
+        <iframe
+          src="https://d2ixa8tnmetcgy.cloudfront.net/"
+          title="Kenny Smith AI Digital Twin"
+          style="width:100%;height:600px;border:none;"
+          loading="lazy"
+        ></iframe>
+      </div>
 
-<p>
-  A conversational AI agent trained on my career data, running on a fully serverless
-  AWS stack I architected and deployed myself — CloudFront, S3, API Gateway, and
-  Lambda in front of the OpenAI API, with persistent conversation memory in S3.
-  Ask it about my background, a specific project, or whether I'd be a fit for your role.
-</p>
+      <div style="padding: 1.25rem 2.5rem 2rem;">
+        <div class="card-footer">
+          <button class="toggle-btn" onclick="toggleDetail('detail-twin-arch', this)"><span class="toggle-icon">+</span> Show Architecture</button>
+          <a href="https://d2ixa8tnmetcgy.cloudfront.net/" target="_blank" class="external-link">Open Full Screen ↗</a>
+        </div>
 
-<div class="tag-row">
-  <span class="tag">AWS Lambda</span>
-  <span class="tag">API Gateway</span>
-  <span class="tag">CloudFront CDN</span>
-  <span class="tag">S3 (Static Hosting + Memory)</span>
-  <span class="tag">Next.js</span>
-  <span class="tag">OpenAI API</span>
-  <span class="tag">Serverless</span>
-  <span class="tag">IaC / CloudWatch</span>
-</div>
+        <div class="project-detail" id="detail-twin-arch">
+          <div class="project-detail-inner">
+            <div>
+              <p class="detail-label">Request flow</p>
+              <div class="pipeline-wrap">
+                <div class="pipeline">
+                  <div class="pipe-step"><div class="pipe-icon">🌐</div><div class="pipe-name">Browser</div><div class="pipe-sub">User request</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">☁️</div><div class="pipe-name">CloudFront</div><div class="pipe-sub">Global CDN, HTTPS</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">🪣</div><div class="pipe-name">S3 (Frontend)</div><div class="pipe-sub">Static Next.js site</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">🔌</div><div class="pipe-name">API Gateway</div><div class="pipe-sub">Routing, CORS</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step highlight"><div class="pipe-icon">⚙️</div><div class="pipe-name accent-name">Lambda</div><div class="pipe-sub">Python backend</div></div>
+                  <span class="pipe-arrow">→</span>
+                  <div class="pipe-step"><div class="pipe-icon">🤖</div><div class="pipe-name">LLM API + S3 Memory</div><div class="pipe-sub">Response + persistence</div></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="detail-label">Why serverless</p>
+              <p class="detail-text">No servers to patch, scale, or pay for at idle — Lambda and API Gateway both bill per request with a generous free tier, and CloudFront caches static assets at the edge so most visits never touch the backend. CloudWatch billing alerts catch runaway usage early, and conversation logs get pruned periodically to keep S3 storage costs flat. Designed to stay under ~$5/month at moderate traffic.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div class="twin-embed">
-  <iframe
-    src="https://d2ixa8tnmetcgy.cloudfront.net/"
-    title="Kenny Smith AI Digital Twin"
-    loading="lazy"
-    style="width:100%; height:640px; border:0; border-radius:12px;"
-    allow="clipboard-write"
-  ></iframe>
-</div>
-
-<p class="twin-fallback">
-  Having trouble with the embed?
-  <a href="https://d2ixa8tnmetcgy.cloudfront.net/" target="_blank" rel="noopener">
-    Open the Digital Twin in a new tab ↗
-  </a>
-</p>
-
-<button class="detail-toggle">+ Show Architecture</button>
-
-<div class="detail-panel">
-  <h3>How it's built</h3>
-
-  <div class="pipeline">
-    🌐 User Browser → ☁️ CloudFront (CDN/HTTPS) → 🪣 S3 (Static Next.js Frontend)
-    → 🔌 API Gateway (Routing/CORS) → ⚙️ Lambda (Python Backend)
-    → 🤖 OpenAI API + 🪣 S3 Memory (Conversation Persistence)
+    </div>
   </div>
-
-  <h4>Component breakdown</h4>
-  <ul>
-    <li><strong>CloudFront:</strong> Global CDN in front of the frontend — free HTTPS, edge caching, low latency worldwide.</li>
-    <li><strong>S3 (frontend):</strong> Hosts the compiled static Next.js site.</li>
-    <li><strong>API Gateway:</strong> Exposes the backend as a REST API, handles CORS and routing to Lambda.</li>
-    <li><strong>Lambda:</strong> Runs the Python backend serverlessly — no servers to patch or scale manually.</li>
-    <li><strong>S3 (memory):</strong> Persists conversation history as JSON so the twin has continuity across sessions.</li>
-  </ul>
-
-  <h4>Cost design</h4>
-  <p>
-    Built to stay under ~$5/month at moderate traffic by leaning on AWS free-tier
-    allowances (1M free Lambda and API Gateway requests, 1TB free CloudFront
-    egress), keeping Lambda timeouts tight, and periodically pruning old
-    conversation logs from the memory bucket. CloudWatch billing alerts catch
-    any runaway usage early.
-  </p>
-
-  <h4>Roadmap</h4>
-  <p>
-    Next iteration swaps OpenAI for AWS Bedrock, adds richer long-term memory,
-    and layers in conversation analytics.
-  </p>
 </div>
 
 <!-- WORK -->
